@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  postgresdb:
+    image: postgres
+    container_name: julius_postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=julius
+    volumes: 
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
