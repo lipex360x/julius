@@ -1,3 +1,8 @@
-import { connectDB } from './config/db'
+import app from './app'
 
-connectDB();
+const server = app.listen(3000, () => console.log(`🚀 App Started at Port 3000`))
+
+process.on('SIGINT', () => {
+  server.close()
+  console.log(`🔒 App Stopped`)
+})
