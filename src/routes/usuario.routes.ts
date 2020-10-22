@@ -19,4 +19,10 @@ router.get('/', async(request, response) => {
   response.json(usuarios)
 })
 
+router.get('/lancamentos/:idUsuario', async (request, response) => {
+  const { idUsuario } = request.params
+  const getLancamentos = await usuarioController.getLancamentos({id: idUsuario})
+
+  return response.json(getLancamentos)
+})
 export default router
