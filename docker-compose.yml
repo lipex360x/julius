@@ -1,14 +1,31 @@
 version: '3'
 
-services:
-  postgresdb:
-    image: postgres
-    container_name: julius_postgres
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=julius
-    volumes: 
-      - ./pgdata:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+services: 
+    postgresdb:
+      container_name: julius-postgres
+      image: 'postgres:latest'
+      environment:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: julius
+      volumes:
+          - ./pgdata:/var/lib/postgresql/data
+      ports:
+          - "5432:5432"
+
+    app:
+      container_name: julius-api
+      build: .
+      restart: always
+      command: yarn dev
+      volumes:
+        - .:/usr/src/app
+      ports:
+          - "3000:3000"
+      depends_on:
+          - postgresdb
+
+
+      
+
+      

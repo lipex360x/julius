@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import morgan from 'morgan'
 import { LancamentoController } from '../controller/LancamentoController'
 import { UsuarioController } from '../controller/UsuarioController'
 import { Lancamento } from '../entity/Lancamento'
