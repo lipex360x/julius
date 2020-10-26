@@ -1,4 +1,4 @@
-import { getManager } from "typeorm";
+import { getManager, getRepository } from "typeorm";
 import { Usuario } from "../entity/Usuario";
 
 interface ISaveProps{
@@ -25,7 +25,7 @@ export class UsuarioController {
   }
 
   async save({usuario}:ISaveProps): Promise<Usuario> {
-    const result = await getManager().save(usuario)
+    const result = await getRepository(Usuario).save(usuario)
     return result
   }
 

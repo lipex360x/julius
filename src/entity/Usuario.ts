@@ -1,7 +1,8 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import {Entity, CreateDateColumn, UpdateDateColumn, Column, OneToMany, PrimaryColumn, BeforeInsert} from "typeorm";
+import { v4 as uuid } from 'uuid'
 import { Lancamento } from './Lancamento'
 
-@Entity()
+@Entity('usuario')
 export class Usuario {
     
     constructor(nome: string, email: string){
@@ -9,14 +10,25 @@ export class Usuario {
         this.email = email
     }
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryColumn()
+    id: string;
 
     @Column()
     nome: string;
 
     @Column()
     email: string;
+
+    @CreateDateColumn()
+    created_at: Date
+
+    @UpdateDateColumn()
+    updated_at: Date
+
+    @BeforeInsert()
+    classId() {
+        this.id = uuid()
+    }
 
     @OneToMany(() => Lancamento, lancamento => lancamento.usuario)
     lancamentos: Lancamento[];   
