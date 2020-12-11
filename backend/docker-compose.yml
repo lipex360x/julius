@@ -2,15 +2,15 @@ version: '3'
 
 services:
 
-  # postgresdb:
-  #   image: postgres
-  #   container_name: ${POSTGRES_CONTAINER_NAME}
-  #   environment:
-  #     - POSTGRES_USER=${POSTGRES_USER}
-  #     - POSTGRES_PASSWORD=${POSTGRES_PASS}
-  #     - POSTGRES_DB=${POSTGRES_DB}
-  #   ports:
-  #     - ${POSTGRES_PORT}:5432
+  postgresdb:
+    image: postgres
+    container_name: ${POSTGRES_CONTAINER_NAME}
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:5432
 
   # mongodb:
   #   image: mongo
