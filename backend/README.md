@@ -1,5 +1,10 @@
 <h2 align="center">Julius Backend</h2>
 
+#### :bookmark_tabs: Content Index
+
+- [Package Scripts](#zap-package-scripts)
+
+---
 
 #### :zap: Package Scripts
 
