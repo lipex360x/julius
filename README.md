@@ -8,7 +8,7 @@
 
 - [Backend](https://github.com/lipex360x/julius/tree/master/backend)
 
-- [Frontend (HTML)](#)
+- [Frontend (HTML)](https://github.com/lipex360x/julius/tree/master/frontend/html)
 
 - [VueJS](#)
 
