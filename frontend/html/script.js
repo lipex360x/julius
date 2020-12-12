@@ -20,8 +20,10 @@ function viewEntryForm() {
 function setEntry(event) {
   event.preventDefault()
 
+  const upOrDown = $("#downRadio").checked ? -1 : 1
+
   const entry = {
-    valor: parseFloat($('#inputValor').value),
+    valor: parseFloat($('#inputValor').value) * upOrDown,
     descricao: $('#inputDescricao').value,
     dataLancamento: $('#inputData').value
   }
@@ -44,43 +46,53 @@ function cleanForm() {
 }
 
 function renderEntries() {
-  if(entries) {
-    let htmlEntry = ''
-    let accountBalance = 0
+  let htmlEntry = ''
+  let accountBalance = 0
 
-    for(let i = entries.length - 1; i > -1; i --) {
-      const valor = entries[i].valor
-      accountBalance += valor
+  if(entries.length === 0) {
+    htmlEntry = `
+      <div class="empty">
+        <p>Nenhum Lançamento Encontrado</p>
+      </div>
+    `
+    $('.entry').innerHTML = htmlEntry
 
-      const entryObject = {
-        class: valor > 0 ? 'up' : 'down',
-        image: valor > 0 ? 'mais.png' : 'menos.png',
-        alt: valor > 0 ? 'Entrada' : 'Saída',
-        valor: valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}),
-        descricao: entries[i].descricao,
-        dataLancamento: new Date(entries[i].dataLancamento).toLocaleDateString()
-      }
+    return
+  }
+ 
+  for(let i = entries.length - 1; i > -1; i --) {
+    const valor = entries[i].valor
+    accountBalance += valor
 
-      const html = `
-        <div class="entry">
-          <img src="img/${entryObject.image}" alt="${entryObject.alt}">
-
-          <div class="descriptionEntry">
-            <span class="value ${entryObject.class}">${entryObject.valor}</span>
-            <span class="data">${entryObject.dataLancamento}</span>
-            <span class="description">${entryObject.descricao}</span>
-          </div>
-
-        </div>
-      `
-
-      htmlEntry += html
+    const entryObject = {
+      class: valor > 0 ? 'up' : 'down',
+      image: valor > 0 ? 'mais.png' : 'menos.png',
+      alt: valor > 0 ? 'Entrada' : 'Saída',
+      valor: valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}),
+      descricao: entries[i].descricao,
+      dataLancamento: new Date(entries[i].dataLancamento).toLocaleDateString()
     }
 
-    $('.entryBlock').innerHTML = htmlEntry
+    const html = `
+      <div class="entry">
+        <img src="img/${entryObject.image}" alt="${entryObject.alt}">
 
-    renderAccount(accountBalance)
+        <div class="descriptionEntry">
+          <span class="value ${entryObject.class}">${entryObject.valor}</span>
+          <span class="data">${entryObject.dataLancamento}</span>
+          <span class="description">${entryObject.descricao}</span>
+        </div>
+
+      </div>
+    `
+
+    htmlEntry += html
   }
+
+  $('.entryBlock').innerHTML = htmlEntry
+
+  renderAccount(accountBalance)
+  
 }
 
 function renderAccount(accountBalance) {
