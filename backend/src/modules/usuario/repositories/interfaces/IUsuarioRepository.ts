@@ -12,4 +12,5 @@ export interface FindByIdProps {
 export default interface IUsuarioRepository {
   create(data: CreateProps): Promise<Usuario>
   findById(data: FindByIdProps): Promise<Usuario>
+  findAll(): Promise<Usuario[]>
 }

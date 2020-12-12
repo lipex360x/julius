@@ -27,4 +27,8 @@ export default class FakeUsuarioRepository implements IUsuarioRepository {
 
     return getUsuario
   }
+
+  async findAll (): Promise<Usuario[]> {
+    return this.repository
+  }
 }
