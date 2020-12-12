@@ -6,7 +6,7 @@ import ListUsuariosService from './ListUsuariosService'
 let fakeUsuarioRepository: FakeUsuarioRepository
 let listUsuariosService: ListUsuariosService
 
-describe('CreateUsuario', () => {
+describe('ListUsuarios', () => {
   beforeEach(() => {
     fakeUsuarioRepository = new FakeUsuarioRepository()
     listUsuariosService = new ListUsuariosService(fakeUsuarioRepository)

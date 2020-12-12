@@ -12,7 +12,7 @@ let fakeUsuarioRepository: FakeUsuarioRepository
 
 let createLancamentoService: CreateLancamentoService
 
-describe('TEST_NAME', () => {
+describe('CreateLancamento', () => {
   beforeEach(() => {
     fakeLancamentoRepository = new FakeLancamentoRepository()
     fakeUsuarioRepository = new FakeUsuarioRepository()
