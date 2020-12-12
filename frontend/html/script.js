@@ -1,6 +1,9 @@
 const $ = document.querySelector.bind(document)
 
-let entries = []
+let localEntries = localStorage.getItem('entries')
+
+let entries = localEntries ? JSON.parse(localEntries) : []
+renderEntries()
 
 function viewEntryForm() {
   const formEntry = $('div.formEntry')
@@ -24,6 +27,8 @@ function setEntry(event) {
   }
 
   entries.push(entry)
+
+  localStorage.setItem('entries', JSON.stringify(entries))
 
   renderEntries()
 
