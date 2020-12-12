@@ -1,5 +1,5 @@
 <h2 align="center">APP Julius</h2>
-<p align="center">Estudos de TypeScript, TypeORM e VueJS</p>
+<p align="center">Studying TypeScript, TypeORM and VueJS</p>
 
 ---
 
