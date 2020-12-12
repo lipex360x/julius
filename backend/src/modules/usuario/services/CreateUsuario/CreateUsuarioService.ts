@@ -18,7 +18,7 @@ export default class CreateUsuarioService {
   ) {}
 
   async execute ({ nome, email }: Request): Promise<Usuario> {
-    const getUsuario = await this.repository.findById({ email })
+    const getUsuario = await this.repository.findByEmail({ email })
 
     if (getUsuario) throw new AppError('This email already exists')
 

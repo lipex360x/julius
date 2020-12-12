@@ -5,8 +5,10 @@ import {
   PrimaryColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  BeforeInsert
+  BeforeInsert,
+  OneToMany
 } from 'typeorm'
+import Lancamento from '@modules/lancamento/infra/typeorm/entities/Lancamento'
 
 @Entity('usuarios')
 export default class Usuario {
@@ -18,6 +20,9 @@ export default class Usuario {
 
   @Column()
   email: string;
+
+  @OneToMany(() => Lancamento, lancamento => lancamento.usuario, { eager: true })
+  lancamentos: Lancamento[]
 
   @CreateDateColumn()
   created_at: Date;

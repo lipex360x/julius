@@ -1,7 +1,7 @@
 import { Repository, getRepository } from 'typeorm'
 
 import Usuario from '@modules/usuario/infra/typeorm/entities/Usuario'
-import IUsuarioRepository, { CreateProps, FindByIdProps } from '@modules/usuario/repositories/interfaces/IUsuarioRepository'
+import IUsuarioRepository, { CreateProps, FindByEmailProps, FindByIdProps } from '@modules/usuario/repositories/interfaces/IUsuarioRepository'
 
 export default class UsuarioRepository implements IUsuarioRepository {
   private repository: Repository<Usuario>
@@ -18,11 +18,16 @@ export default class UsuarioRepository implements IUsuarioRepository {
     return usuario
   }
 
-  async findById ({ email }:FindByIdProps): Promise<Usuario> {
+  async findById ({ usuario_id }:FindByIdProps): Promise<Usuario> {
+    const getUsuario = await this.repository.findOne(usuario_id)
+
+    return getUsuario
+  }
+
+  async findByEmail ({ email }:FindByEmailProps): Promise<Usuario> {
     const getUsuario = await this.repository.findOne({
-      where: {
-        email
-      }
+      where:
+      { email }
     })
 
     return getUsuario
