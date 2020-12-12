@@ -40,7 +40,25 @@
       <div class="left">
 
         <div class="header">
-          <button>Novo Lançamento</button>
+          <button onclick="viewEntryForm()">Novo Lançamento</button>
+        </div>
+
+        <div class="formEntry">
+          <form>
+            <label for="value">Valor </label>
+            <input type="number" name="value" id="inputValor">
+
+            <label for="description">Descrição</label>
+            <input type="text" name="description" id="inputDescricao">
+
+            <label for="dataEntry">Data do Lançamento</label>
+            <input type="date" name="dataEntry" id="inputDataEntry">
+
+            <div id="buttonEntry">
+              <button>Criar Lançamento</button>
+            </div>
+            
+          </form>
         </div>
 
         <div class="entryBlock">
@@ -56,28 +74,6 @@
 
           </div>
 
-          <div class="entry">
-            <img src="img/menos.png" alt="Saída">
-
-            <div class="descriptionEntry">
-              <span class="value down">R$35.97</span>
-              <span class="data">15/09/2020</span>
-              <span class="description">Padaria Villas Boas</span>
-            </div>
-            
-          </div>
-
-          <div class="entry">
-            <img src="img/mais.png" alt="Saída">
-
-            <div class="descriptionEntry">
-              <span class="value up">R$35.97</span>
-              <span class="data">15/09/2020</span>
-              <span class="description">Padaria Villas Boas</span>
-            </div>
-            
-          </div>
-
         </div>
 
       </div>
@@ -85,13 +81,15 @@
       <div class="right">
         
         <div class="header">
-          <span><img src="img/editar.png" alt="Editar"> Renda Mensal</span>
+          <span> Saldo da Conta</span>
           <h2>R$3.000,00</h2>
         </div>
 
       </div>
+
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
