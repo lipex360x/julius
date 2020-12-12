@@ -27,4 +27,10 @@ export default class UsuarioRepository implements IUsuarioRepository {
 
     return getUsuario
   }
+
+  async findAll (): Promise<Usuario[]> {
+    const getUsuarios = await this.repository.find()
+
+    return getUsuarios
+  }
 }
