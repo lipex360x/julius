@@ -2,9 +2,46 @@ const $ = document.querySelector.bind(document)
 
 let localEntries = localStorage.getItem('entries')
 
+// CHART OPTIONS
+const chartOptions = {
+  responsive: true,
+  title: {
+    display: true,
+    text: 'Saldo'
+  },
+  tooltips: {
+    mode: 'index',
+    intersect: false,
+  },
+  hover: {
+    mode: 'nearest',
+    intersect: true
+  },
+  scales: {
+    xAxes: [{
+      display: true,
+      scaleLabel: {
+        display: true,
+        labelString: 'Dias'
+      }
+    }],
+    yAxes: [{
+      display: true,
+      scaleLabel: {
+        display: true,
+        labelString: 'Renda'
+      }
+    }]
+  }
+}
+
+
 let entries = localEntries ? JSON.parse(localEntries) : []
 renderEntries()
+renderChart()
 
+
+// SHOW / HIDE FORM ENTRY
 function viewEntryForm() {
   const formEntry = $('div.formEntry')
   const display = formEntry.style.display
@@ -17,6 +54,7 @@ function viewEntryForm() {
   $('#inputValor').focus()
 }
 
+// SET NEW ENTRIES
 function setEntry(event) {
   event.preventDefault()
 
@@ -33,18 +71,58 @@ function setEntry(event) {
   localStorage.setItem('entries', JSON.stringify(entries))
 
   renderEntries()
-
   cleanForm()
-
+  renderChart()
   $('#inputValor').focus()
 }
 
+
+function renderChart () {
+  if(entries) {
+    const orderEntry = entries.sort((a, b) => a.dataLancamento - b.dataLancamento)
+    let dates = []
+    let values = []
+    let currentValue = 0
+
+    orderEntry.forEach( order => {
+      const date = new Date(order.dataLancamento).toLocaleDateString()
+      dates.push(date)
+
+      currentValue += order.valor
+      values.push(currentValue)
+    })
+
+    const colorCurve = currentValue < 0 ? 'red' : 'blue'
+    const chartConfig = {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [{
+          label: 'Comportamento do seu dinheiro',
+          backgroundColor: colorCurve,
+          borderColor: colorCurve,
+          data: values,
+          fill: false
+        }],
+      },
+      options: chartOptions
+    }
+
+    const context = $('#chartMoney').getContext('2d')
+    new Chart(context, chartConfig)
+  }
+}
+
+
+// CLEAN FORM
 function cleanForm() {
   $('#inputValor').value = '',
   $('#inputDescricao').value = '',
   $('#inputData').value = ''
 }
 
+
+// RENDER ENTRIES
 function renderEntries() {
   let htmlEntry = ''
   let accountBalance = 0
@@ -95,6 +173,7 @@ function renderEntries() {
   
 }
 
+// RENDER ACCOUNT BALANCE
 function renderAccount(accountBalance) {
   const balance = accountBalance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
