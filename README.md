@@ -8,7 +8,7 @@
 ---
 
 #### :bookmark_tabs: Content Index
-- [PlayList Original](https://www.youtube.com/watch?v=tCVU2l89qz0&list=PL370TvW48yBthGQ8SetNVwO8dc-DYKzoq&ab_channel=SidneySousae)
+- [Original Playlist Guide](https://www.youtube.com/watch?v=tCVU2l89qz0&list=PL370TvW48yBthGQ8SetNVwO8dc-DYKzoq&ab_channel=SidneySousae)
 
 - [Backend](#zap-backend)
 
@@ -30,7 +30,7 @@
   Validation with Celebrate
 ```
 
-:rocket: [Go to Backend](https://github.com/lipex360x/julius/tree/master/backend)
+:rocket: [Go to Backend Folder](https://github.com/lipex360x/julius/tree/master/backend)
 
 ---
 #### :zap: Frontend
@@ -43,7 +43,7 @@
  ChartJS
 ```
 
-:rocket: [Go to HTML Frontend](https://github.com/lipex360x/julius/tree/master/frontend/html)
+:rocket: [Go to HTML Frontend Folder](https://github.com/lipex360x/julius/tree/master/frontend/html)
 
 ---
 
