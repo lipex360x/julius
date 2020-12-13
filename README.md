@@ -10,11 +10,11 @@
 #### :bookmark_tabs: Content Index
 - [PlayList Original](https://www.youtube.com/watch?v=tCVU2l89qz0&list=PL370TvW48yBthGQ8SetNVwO8dc-DYKzoq&ab_channel=SidneySousae)
 
-- [Backend](https://github.com/lipex360x/julius/tree/master/backend)
+- [Backend](#zap-backend)
 
-- [Frontend (HTML)](https://github.com/lipex360x/julius/tree/master/frontend/html)
+- [Frontend (HTML)](#zap-frontend)
 
-- [VueJS](#)
+- [VueJS](#zap-vuejs)
 
 ---
 
@@ -30,6 +30,8 @@
   Validation with Celebrate
 ```
 
+:rocket: [Go to Backend](https://github.com/lipex360x/julius/tree/master/backend)
+
 ---
 #### :zap: Frontend
 
@@ -40,6 +42,9 @@
  Javascript
  ChartJS
 ```
+
+:rocket: [Go to HTML Frontend](https://github.com/lipex360x/julius/tree/master/frontend/html)
+
 ---
 
 #### :zap: VueJS
@@ -49,6 +54,6 @@
 Under Construction
 ```
 
-:bookmark_tabs: [Go to Content Index](#bookmark_tabs-content-index)
-
 ---
+
+:point_up_2: [Go to Content Index](#bookmark_tabs-content-index)
