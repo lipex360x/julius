@@ -1,5 +1,5 @@
 <h2 align="center">APP Julius</h2>
-<p align="center">Studying TypeScript, TypeORM and VueJS</p>
+<p align="center">Personal Finance Platform developed with TypeScript, TypeORM and VueJS</p>
 
 ---
 
