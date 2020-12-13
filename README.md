@@ -3,6 +3,10 @@
 
 ---
 
+![Julius](https://github.com/lipex360x/julius/blob/master/frontend/html/img/julius2.jpg)
+
+---
+
 #### :bookmark_tabs: Content Index
 - [PlayList Original](https://www.youtube.com/watch?v=tCVU2l89qz0&list=PL370TvW48yBthGQ8SetNVwO8dc-DYKzoq&ab_channel=SidneySousae)
 
