@@ -2,7 +2,23 @@
 
 #### :bookmark_tabs: Content Index
 
+- [Packages and Tecnologies](#zap-backend)
+
 - [Package Scripts](#zap-package-scripts)
+
+---
+
+#### :zap: Backend
+
+* Packages and Tecnologies
+```json
+  Express
+  Typescript
+  TypeORM
+  TDD with JEST
+  DDD with SOLID
+  Validation with Celebrate
+```
 
 ---
 

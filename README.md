@@ -35,7 +35,10 @@
 
 * Packages and Tecnologies
 ```json
- Under Construction
+ HTML5
+ CSS3
+ Javascript
+ ChartJS
 ```
 ---
 
