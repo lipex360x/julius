@@ -6,7 +6,7 @@
 
 - [Package Scripts](#zap-package-scripts)
 
-- :house: [Return to Main Folder](https://github.com/lipex360x/julius)
+:house: [Return to Main Folder](https://github.com/lipex360x/julius)
 
 ---
 

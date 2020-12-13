@@ -2,7 +2,15 @@
 
 ![Julius](https://github.com/lipex360x/julius/blob/master/frontend/html/img/julius2.jpg)
 
+
+#### :bookmark_tabs: Content Index
+
+- [Packages and Tecnologies](#zap-frontend)
+
+:house: [Return to Main Folder](https://github.com/lipex360x/julius)
+
 ---
+
 #### :zap: Frontend
 
 * Packages and Tecnologies
@@ -14,5 +22,3 @@
 ```
 
 ---
-
-:point_up_2: [Go to Content Index](#bookmark_tabs-content-index)
