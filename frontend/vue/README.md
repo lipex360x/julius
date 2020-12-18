@@ -1,24 +1,37 @@
-# vue
+<h2 align="center">Julius Frontend (VUE)</h2>
 
-## Project setup
-```
-yarn install
+#### :bookmark_tabs: Content Index
+
+- [Packages and Tecnologies](#zap-backend)
+
+- [Package Scripts](#zap-package-scripts)
+
+:house: [Return to Main Folder](https://github.com/lipex360x/julius)
+
+#### :zap: Frontend (VUE)
+
+* Packages and Tecnologies
+```json
+  VueJS 2.0
+
 ```
 
-### Compiles and hot-reloads for development
+---
+
+#### :zap: Package Scripts
+
+* Start Server 
 ```
+> Develop Mode
 yarn serve
-```
 
-### Compiles and minifies for production
-```
+> Production Mode (after build)
 yarn build
+
+yarn start
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+---
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+:point_up_2: [Go to Content Index](#bookmark_tabs-content-index)
+
