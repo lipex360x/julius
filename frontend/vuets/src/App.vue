@@ -1,27 +1,48 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome to Julius APP"/>
+  <div>
+    <MainHeader/>
+    <Header msg="Ola"/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import MainHeader from '@/components/MainHeader.vue'
+import Header from '@/components/Header.vue'
 
 export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+  name: 'App',
+  components: { MainHeader, Header }
 })
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@font-face {
+  font-family: "padrao";
+  src: url("./fonts/KumbhSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "negrito";
+  src: url("./fonts/KumbhSans-Bold.ttf");
+}
+
+:root {
+  --cor-destaque: #243b55;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  background: rgb(20,30,48);
+}
+.container {
+  width: 1040px;
+  display: flex;
+  margin: 0 auto;
 }
 </style>
