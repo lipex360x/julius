@@ -1,7 +1,7 @@
 <template>
   <div>
     <MainHeader/>
-    <Header msg="Ola"/>
+    <Header msg="Olá, Fulano!"/>
   </div>
 </template>
 
@@ -38,7 +38,7 @@ export default defineComponent({
 }
 
 body {
-  background: rgb(20,30,48);
+  background-image: linear-gradient(to right, #141e30, #243b55);
 }
 .container {
   width: 1040px;
