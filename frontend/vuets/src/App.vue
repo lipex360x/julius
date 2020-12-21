@@ -2,6 +2,7 @@
   <div>
     <MainHeader/>
     <Header msg="Olá, Fulano!"/>
+    <CenterPanel />
   </div>
 </template>
 
@@ -9,10 +10,11 @@
 import { defineComponent } from 'vue'
 import MainHeader from '@/components/MainHeader.vue'
 import Header from '@/components/Header.vue'
+import CenterPanel from '@/components/CenterPanel.vue'
 
 export default defineComponent({
   name: 'App',
-  components: { MainHeader, Header }
+  components: { MainHeader, Header, CenterPanel }
 })
 </script>
 
@@ -45,4 +47,11 @@ body {
   display: flex;
   margin: 0 auto;
 }
+.down {
+  color: #E64F3E
+}
+.up {
+  color: #85BE64
+}
+
 </style>
