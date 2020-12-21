@@ -17,9 +17,7 @@ export default defineComponent({
       type: String,
       default: 'Hello Header'
     }
-  },
-
-  components: {}
+  }
 })
 
 </script>
