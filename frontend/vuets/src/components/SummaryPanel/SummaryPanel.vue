@@ -1,11 +1,12 @@
 <template>
   <div class='box'>
-    {{ msg }}
+    <ChartBox />
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import ChartBox from './ChartBox.vue'
 
 export default defineComponent({
   name: 'SummaryPanel',
@@ -17,7 +18,7 @@ export default defineComponent({
     }
   },
 
-  components: {}
+  components: { ChartBox }
 })
 
 </script>
