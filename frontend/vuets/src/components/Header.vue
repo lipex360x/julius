@@ -14,8 +14,7 @@ export default defineComponent({
 
   props: {
     msg: {
-      type: String,
-      default: 'Hello Header'
+      type: String
     }
   }
 })
