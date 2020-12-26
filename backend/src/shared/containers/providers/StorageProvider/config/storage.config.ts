@@ -23,7 +23,7 @@ export default {
 
       const fileText = `${name}.${ext[1]}`
 
-      const fileHash = crypt.randomBytes(10).toString('HEX')
+      const fileHash = crypt.randomBytes(10).toString('hex')
       const fileName = `${fileHash}-${fileText}`
 
       return callback(null, fileName)
