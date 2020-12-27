@@ -1,16 +1,16 @@
+import express, { NextFunction, Request, Response } from 'express'
+import cors from 'cors'
+import { errors } from 'celebrate'
 import 'dotenv/config'
 import 'reflect-metadata'
 import 'express-async-errors'
 
-import express, { NextFunction, Request, Response } from 'express'
-import cors from 'cors'
-import { errors } from 'celebrate'
-
 import '@shared/containers'
+import '@shared/infra/typeorm'
+
 import storageConfig from '@shared/containers/providers/StorageProvider/config/storage.config'
 
 import routes from '@shared/infra/http/routes'
-import '@shared/infra/typeorm'
 
 import AppError from '@shared/errors/AppError'
 
