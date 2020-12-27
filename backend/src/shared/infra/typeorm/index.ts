@@ -1,17 +1,25 @@
-import { createConnections } from 'typeorm'
+import { createConnections, Connection } from 'typeorm'
+let count = 0
 
-const connectDB = async () => {
+async function connectDB () {
+  const retry = true
+
   try {
-    const connect = await createConnections()
-
-    console.log(`💖 Connected to ${connect[0].options.database}`)
-
-    process.on('SIGINT', () => {
-      connect[0].close().then(() => console.log(`  💔 Disconnected to ${connect[0].options.database}`))
-    })
+    const connection: Connection[] = await createConnections()
+    console.log('Conectou')
+    return connection
   } catch (error) {
-    console.log('Database Error: ', error.message)
+    console.error('count:', count)
+    const t = setInterval(() => {
+      console.log('Tentando Conectar')
+      if (retry) {
+        connectDB()
+      }
+      clearTimeout(t)
+    }, 2000)
+
+    count++
   }
 }
 
-export default connectDB
+export default connectDB()
