@@ -1,5 +1,5 @@
 interface RetryProps {
-  attemptLimit:number | 'Infinit',
+  attemptLimit:number | 'Infinity',
   timeInSeconds: number,
   message:string,
   functionRetry: any
@@ -18,7 +18,7 @@ class PromiseRetry {
     const interval = setInterval(async () => {
       console.log(`⚔ ${message} - attempt ${this.count} of ${attemptLimit}`)
 
-      if (attemptLimit !== 'Infinit' && this.count >= attemptLimit) {
+      if (attemptLimit !== 'Infinity' && this.count >= attemptLimit) {
         console.log('☠ Maximum attempts reached')
         process.exit()
       }
