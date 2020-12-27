@@ -1,23 +1,23 @@
-import { createConnections, Connection } from 'typeorm'
+import { createConnections } from 'typeorm'
 let count = 0
-
 async function connectDB () {
-  const retry = true
-
   try {
-    const connection: Connection[] = await createConnections()
-    console.log('Conectou')
-    return connection
+    const connect = await createConnections()
+    console.log(`💖 Connected to ${connect[0].options.database}`)
+
+    process.on('SIGINT', () => {
+      connect[0].close().then(() => console.log(`  💔 Disconnected to ${connect[0].options.database}`))
+    })
   } catch (error) {
-    console.error('count:', count)
+    if (count >= 5) {
+      console.log('Maximum attempts reached ')
+      process.exit()
+    }
     const t = setInterval(() => {
-      console.log('Tentando Conectar')
-      if (retry) {
-        connectDB()
-      }
+      console.log('⚔ Trying connect to databases...')
+      connectDB()
       clearTimeout(t)
     }, 2000)
-
     count++
   }
 }

@@ -10,10 +10,9 @@ import '@shared/containers'
 import storageConfig from '@shared/containers/providers/StorageProvider/config/storage.config'
 
 import routes from '@shared/infra/http/routes'
-import connectDB from '@shared/infra/typeorm'
+import '@shared/infra/typeorm'
 
 import AppError from '@shared/errors/AppError'
-connectDB()
 
 const app = express()
 
