@@ -6,14 +6,10 @@ on:
 
 jobs:
   build:
-    env:
-      key1: ${{ secrets.SSH_URL }}
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v2
-#     - run: echo $key1
-#       if: ${{env.key1}} == 22
       
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
