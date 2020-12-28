@@ -21,7 +21,7 @@ jobs:
         host: ${{ secrets.SSH_URL }}
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
-        key: ${{ secrets.SSH_KEY }}
+        key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDWRGXv/DSsZKSFPsy6g+ITSHn0tY+a1oW+DAe2y963dY2oRU1eq6ZZEKRK3mwFFKU0BSbhfJXgnYYO/rdK63Fxt/lyEt1NdwMHA6+hIDpt68hqNOpLriIAjAf7aFOT8XfSVbak8bhx9LOX4HQP3traRM7YtmiJFfWN6Lz28Ew25Qpt7F78iaOM6g0VjNgoXM/3bkn4ZB3ldDGMGBlmHVezfQLbYtvJdhuQ9jEL/j3OGAjAxLNEweLW4k6KEJWsIOdKZBm1KunF6NbZjC6TlZBB3BQgvUqAzOQQ+3OtZsjXrcy2HCXGj7+SlaQfs7xvf3Q01joT4rV4y9Dd2SaH0wCEPBrPxZ7ol4unjnMRB9wbxUrDzFWeK3B1ieoAhqJZaYoDzlYDPt9f9hYraVSyXY6coepw19Z5j9PBW6/0Gqi/xcGcdI/5ZQRm4KUeevw6pmUDwdqGDHUFs+s+H6tDBQu02N+AZrBkOn2vZiYoJ1wXe3rwDuG45IVvr359zr5J8rblzzvlbW2I3zSdN+i6Z//7FM+hrktyL/spt7rf5StDTIjGt+ZaUI+6Nq26t8s+lU9v/tOd5t5t1Bu4NKmAUmF4Lg3qqyfI5Ret4SRH+nwM2Ht36XteRiTs1ik19zvnFS8K/m74RZyrc8RXMZ/G5iYvWJ201Eei02Y+KbFRKMLAcw== lipex360@gmail.com'
         script: whoami
 
     # instalar depenencias
