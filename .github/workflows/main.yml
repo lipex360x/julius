@@ -12,19 +12,17 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - run: echo $key1
-      if: ${{env.key1}} == 22
-#     steps:
-#       - uses: actions/checkout@v2
+#     - run: echo $key1
+#       if: ${{env.key1}} == 22
       
-#       - name: executing remote ssh commands using password
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ secrets.SSH_URL }}
-#           username: ${{ secrets.SSH_USER }}
-#           port: ${{ secrets.SSH_PORT }}
-#           key: ${{ secrets.SSH_KEY }}
-#           script: whoami
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_URL }}
+        username: ${{ secrets.SSH_USER }}
+        port: ${{ secrets.SSH_PORT }}
+        key: ${{ secrets.SSH_KEY }}
+        script: whoami
 
     # instalar depenencias
     # executar build
