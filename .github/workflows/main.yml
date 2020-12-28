@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     env:
-      key1: 'teste de echo'
+      key1: 'teste de echoss'
     runs-on: ubuntu-latest
     
     steps:
