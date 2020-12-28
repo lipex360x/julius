@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     env:
-      key1: ${{secrets.SSH_PORT}}
+      key1: 'teste de echo'
     runs-on: ubuntu-latest
     
     steps:
