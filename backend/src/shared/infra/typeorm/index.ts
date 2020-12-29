@@ -12,8 +12,8 @@ class OrmConnect {
       })
     } catch (error) {
       await promiseRetry.execute({
-        timeInSeconds: 2,
-        attemptLimit: 10,
+        timeInSeconds: 1,
+        attemptLimit: 'Infinity',
         message: 'Trying to connect to database',
         functionRetry: () => { return this.execute() }
       })
