@@ -3,25 +3,29 @@
     <TransactionForm />
 
     <div id="transactionSection">
+
       <TransactionBox
-        :transaction="{
-          type: 'receita',
-          value: 250,
-          date: '2020-05-30',
-          description: 'Teste de Lançamento'
-        }"
+        v-for="transaction in getTransactions"
+        v-bind:key="transaction.id"
+        :transactionType="transaction.value > 0 ? 'receita' : 'despesa'"
+        :transaction="transaction"
       />
+
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
+
 import TransactionForm from './TransactionForm.vue'
 import TransactionBox from './TransactionBox.vue'
 
 export default defineComponent({
   name: 'TransactionDashboard',
+  computed: mapGetters(['getTransactions']),
+
   data: () => {
     return {}
   },

@@ -1,5 +1,11 @@
 import { createStore } from 'vuex'
 
-const store = createStore({})
+import moduleTransactions from './modules/moduleTransactions'
+
+const store = createStore({
+  modules: {
+    moduleTransactions
+  }
+})
 
 export default store

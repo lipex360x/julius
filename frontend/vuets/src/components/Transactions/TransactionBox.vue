@@ -1,13 +1,13 @@
 <template>
   <div class="transactionBox">
     <img
-      v-if="transaction.type === 'receita'"
+      v-if="transactionType === 'receita'"
       src="@/img/mais.png"
       alt="Receita"
       class="transactionType"
     />
     <img
-      v-else-if="transaction.type === 'despesa'"
+      v-else-if="transactionType === 'despesa'"
       src="@/img/menos.png"
       alt="Despesa"
       class="transactionType"
@@ -18,12 +18,10 @@
     </button> -->
 
     <div class="transactionDetails">
-
-      <span v-if="transaction.type === 'receita'" class="value up">{{ transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
-      <span v-else-if="transaction.type === 'despesa'" class="value down">{{ transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
-
+      <span v-if="transactionType === 'receita'" class="value up">{{ transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
+      <span v-else-if="transactionType === 'despesa'" class="value down">{{  transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
       <span class="data">{{ new Date(transaction.date).toLocaleDateString() }}</span>
-      <span class="description">{{ transaction.descricao }}</span>
+      <span class="description">{{ transaction.description }}</span>
     </div>
   </div>
 </template>
@@ -35,8 +33,9 @@ export default defineComponent({
   name: 'TransactionBox',
 
   props: {
+    transactionType: String,
     transaction: {
-      type: String,
+      definition: String,
       value: Number,
       date: Date,
       description: String
