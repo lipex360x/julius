@@ -1,25 +1,25 @@
 <template>
-  <div class="formEntry">
-    <form onsubmit="setEntry(event)">
+  <div class="transactionForm">
+    <form>
 
-      <div class="typeEntry">
-        <input type="radio" name="inputTypeEntry" id="upRadio">
+      <div class="transactionType">
+        <input type="radio" name="transactionTypeInput" id="upRadio">
         <label for="upRadio" class="up">Entrada</label>
 
-        <input type="radio" name="inputTypeEntry" id="downRadio" checked>
+        <input type="radio" name="transactionTypeInput" id="downRadio" checked>
         <label for="downRadio" class="down">Saída</label>
       </div>
 
-      <label for="inputValor">Valor </label>
-      <input type="number" step="0.01" min="0" name="value" id="inputValor" required>
+      <label for="inputValue">Valor </label>
+      <input type="number" step="0.01" min="0" name="transactionValue" id="inputValue" required>
 
-      <label for="inputDescricao">Descrição</label>
-      <input type="text" name="description" id="inputDescricao" required>
+      <label for="inputDescription">Descrição</label>
+      <input type="text" name="transactionDescription" id="inputDescription" required>
 
-      <label for="inputData">Data do Lançamento</label>
-      <input type="date" name="dataEntry" id="inputData" required>
+      <label for="inputDate">Data do Lançamento</label>
+      <input type="date" name="transactionDate" id="inputDate" required>
 
-      <div id="buttonEntry">
+      <div id="transactionButton">
         <button>Criar Lançamento</button>
       </div>
 
@@ -31,13 +31,13 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'FormEntry'
+  name: 'TransactionForm'
 })
 
 </script>
 
 <style scoped>
-.formEntry {
+.transactionForm {
   font-family: "padrao";
   margin-top: 15px;
   border-radius: 4px;
@@ -48,24 +48,24 @@ export default defineComponent({
   -moz-box-shadow: 0px 1px 6px 0px rgba(190, 190, 190);
   box-shadow: 0px 1px 6px 0px rgb(190, 190, 190);
 }
-.formEntry .typeEntry {
+.transactionForm .transactionType {
   margin: 10px 0
 }
 
-.formEntry .typeEntry input {
+.transactionForm .transactionType input {
   margin: 0;
   margin-right: 5px;;
   vertical-align: middle;
   display: inline;
 }
 
-.formEntry .typeEntry label {
+.transactionForm .transactionType label {
   vertical-align: middle;
   margin-right: 10px;
   font-family: "negrito";
 }
 
-.formEntry input {
+.transactionForm input {
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
@@ -77,20 +77,20 @@ export default defineComponent({
   padding: 0 10px;
 }
 
-#inputValor {
+#inputValue {
   width: 40%
 }
 
-#inputDescricao{
+#inputDescription{
   width: 94%;
 }
 
-#buttonEntry {
+#transactionButton {
   display: flex;
   align-content: center;
 }
 
-#buttonEntry button{
+#transactionButton button{
   border: none;
   padding: 10px 8px;
   background-color: var(--cor-destaque);

@@ -1,5 +1,5 @@
 <template>
-  <div class='box'>
+  <div class='summaryDashboard'>
     <ChartBox />
   </div>
 </template>
@@ -9,7 +9,7 @@ import { defineComponent } from 'vue'
 import ChartBox from './ChartBox.vue'
 
 export default defineComponent({
-  name: 'SummaryPanel',
+  name: 'SummaryDashboard',
 
   components: { ChartBox }
 })
@@ -17,7 +17,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.box {
+.summaryDashboard {
   width: 60%
 }
 </style>

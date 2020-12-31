@@ -2,7 +2,7 @@
   <div>
     <MainHeader/>
     <Header msg="Olá, Fulano!"/>
-    <CenterPanel />
+    <Dashboard />
   </div>
 </template>
 
@@ -10,11 +10,11 @@
 import { defineComponent } from 'vue'
 import MainHeader from '@/components/MainHeader.vue'
 import Header from '@/components/Header.vue'
-import CenterPanel from '@/components/CenterPanel.vue'
+import Dashboard from '@/components/Dashboard.vue'
 
 export default defineComponent({
   name: 'App',
-  components: { MainHeader, Header, CenterPanel }
+  components: { MainHeader, Header, Dashboard }
 })
 </script>
 
