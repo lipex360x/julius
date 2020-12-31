@@ -42,14 +42,6 @@ import EntryBox from './EntryBox.vue'
 
 export default defineComponent({
   name: 'LaunchPanel',
-
-  props: {
-    msg: {
-      type: String,
-      default: 'Hello LaunchPanel'
-    }
-  },
-
   components: { FormEntry, EntryBox }
 })
 </script>

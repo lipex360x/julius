@@ -11,13 +11,6 @@ import ChartBox from './ChartBox.vue'
 export default defineComponent({
   name: 'SummaryPanel',
 
-  props: {
-    msg: {
-      type: String,
-      default: 'Hello SummaryPanel'
-    }
-  },
-
   components: { ChartBox }
 })
 
