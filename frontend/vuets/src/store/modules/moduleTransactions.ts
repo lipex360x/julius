@@ -10,6 +10,11 @@ interface Transactions {
   balance: number;
 }
 
+interface CommitProps {
+  mutation: string;
+  data: Transaction;
+}
+
 const moduleTransactions = {
   state: {
     transactions: [
@@ -43,9 +48,17 @@ const moduleTransactions = {
     getBalance: (state: Transactions) => state.balance
   },
 
-  actions: {},
+  actions: {
+    saveTransaction: ({ commit }, transaction: Transaction) => {
+      commit('createTransaction', transaction)
+    }
+  },
 
-  mutations: {}
+  mutations: {
+    createTransaction: (state: Transactions, transaction: Transaction) => {
+      state.transactions.unshift(transaction)
+    }
+  }
 }
 
 export default moduleTransactions

@@ -25,10 +25,6 @@ import TransactionBox from './TransactionBox.vue'
 export default defineComponent({
   name: 'TransactionDashboard',
   computed: mapGetters(['getTransactions']),
-
-  data: () => {
-    return {}
-  },
   components: { TransactionForm, TransactionBox }
 })
 </script>

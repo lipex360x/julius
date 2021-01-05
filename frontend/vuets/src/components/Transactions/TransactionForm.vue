@@ -1,23 +1,23 @@
 <template>
   <div class="transactionForm">
-    <form>
+    <form @submit="newTransaction">
 
       <div class="transactionType">
-        <input type="radio" name="transactionTypeInput" id="upRadio">
+        <input type="radio" name="transactionTypeInput" id="upRadio" value="receita" v-model="type">
         <label for="upRadio" class="up">Entrada</label>
 
-        <input type="radio" name="transactionTypeInput" id="downRadio" checked>
+        <input type="radio" name="transactionTypeInput" id="downRadio" value="despesa" v-model="type" checked>
         <label for="downRadio" class="down">Saída</label>
       </div>
 
       <label for="inputValue">Valor </label>
-      <input type="number" step="0.01" min="0" name="transactionValue" id="inputValue" required>
+      <input type="number" step="0.01" min="0" name="transactionValue" id="inputValue" v-model.number="value" required>
 
       <label for="inputDescription">Descrição</label>
-      <input type="text" name="transactionDescription" id="inputDescription" required>
+      <input type="text" name="transactionDescription" id="inputDescription" v-model="description" required>
 
       <label for="inputDate">Data do Lançamento</label>
-      <input type="date" name="transactionDate" id="inputDate" required>
+      <input type="date" name="transactionDate" id="inputDate" v-model="date" required>
 
       <div id="transactionButton">
         <button>Criar Lançamento</button>
@@ -29,9 +29,32 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
+import Transaction from '@/models/Transaction'
 
 export default defineComponent({
-  name: 'TransactionForm'
+  name: 'TransactionForm',
+  data: () => {
+    return {
+      type: 'despesa',
+      value: undefined,
+      description: '',
+      date: ''
+    }
+  },
+  methods: {
+    ...mapActions(['saveTransaction']),
+
+    newTransaction (event) {
+      event.preventDefault()
+      const transaction = new Transaction({
+        date: this.date,
+        value: this.value,
+        description: this.description
+      })
+      this.mapActionss(transaction)
+    }
+  }
 })
 
 </script>

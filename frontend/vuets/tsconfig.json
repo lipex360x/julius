@@ -7,6 +7,7 @@
     "importHelpers": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
+    //"noImplicitAny": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
@@ -32,7 +33,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/store/modules/moduleTransactions.js"  ],
   "exclude": [
     "node_modules"
   ]
