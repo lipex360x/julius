@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+const font = 'Kumbh Sans'
+
 export const Section = styled.section`
   background: #fff;
   padding: 10px 0;
@@ -21,7 +23,7 @@ export const Logo = styled.div`
   }
 
   h1 {
-    font-family: 'Kumbh Sans';
+    font-family: ${font};
     font-size: 110%;
     margin-left: 10px;
   }
@@ -29,7 +31,7 @@ export const Logo = styled.div`
 
 export const Slogan = styled.div`
   span {
-    font-family: 'Kumbh Sans';
+    font-family: ${font};
     font-size: 110%;
   }
 `
