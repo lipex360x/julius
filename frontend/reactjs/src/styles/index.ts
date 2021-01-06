@@ -13,7 +13,7 @@ export default createGlobalStyle`
   }
 
   :root{
-    --color-default: #243b55
+    --color-default: #141e30
   }
 
   @font-face{
@@ -29,7 +29,6 @@ export default createGlobalStyle`
   .container {
     max-width: 1100px;
     padding: 0 20px;
-    display: flex;
     margin: 0 auto;
   }
 ` 
