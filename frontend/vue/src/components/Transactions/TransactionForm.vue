@@ -31,8 +31,8 @@ import { mapActions } from 'vuex'
 import TransactionModel from '../../models/TransactionModel'
 
 export default {
-  
   name: 'TransactionForm',
+  
   data: () => {
     return {
       type: 'despesa',

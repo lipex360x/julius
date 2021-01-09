@@ -55,6 +55,6 @@ export default {
     color: #E64F3E
   }
   .up {
-    color: #85BE64
+    color: #3f8814
   }
 </style>

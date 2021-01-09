@@ -1,6 +1,6 @@
 <template>
   <div class="analyticsDash">
-    <header>
+    <header :class="getBalance > 0 ? 'up' : 'down'">
       <span>Account Balance</span>
       <h2>{{ getBalance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</h2>
     </header>
@@ -8,11 +8,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'AnalyticsDash',
-  computed: mapGetters(['getBalance'])
+  computed: mapGetters(['getBalance']),
+  methods: mapActions(['updateBalance']),
+
+  created() {
+    this.updateBalance()
+  }
 }
 </script>
 
