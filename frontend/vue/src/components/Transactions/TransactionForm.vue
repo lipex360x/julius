@@ -53,6 +53,14 @@ export default {
         description: this.description
       })
       this.saveTransaction(transaction)
+      this.cleanForm()
+    },
+    
+    cleanForm() {
+      this.type = 'despesa';
+      this.value = undefined;
+      this.description = '';
+      this.date = ''
     }
   }
 }
@@ -63,7 +71,7 @@ export default {
 .transactionForm {
   font-family: "padrao";
   border-radius: 4px;
-  padding: 20px 15px;
+  padding: 5px 15px 15px 15px;
   font-size: 90%;
   background-image: linear-gradient(to top, #f1f1f1, #fafafa);
  
