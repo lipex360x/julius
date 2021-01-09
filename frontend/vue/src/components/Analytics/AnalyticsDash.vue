@@ -2,18 +2,29 @@
   <div class="analyticsDash">
     <header :class="getBalance > 0 ? 'up' : 'down'">
       <span>Account Balance</span>
-      <h2>{{ getBalance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</h2>
+      <h2>{{ currencyFormat(getBalance) }}</h2>
     </header>
+    <AnalyticsChart />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import currencyFormat from '../../utils/currencyFormat'
+
+import AnalyticsChart from './AnalyticsChart.vue'
 
 export default {
   name: 'AnalyticsDash',
+  components: { AnalyticsChart },
   computed: mapGetters(['getBalance']),
   methods: mapActions(['updateBalance']),
+  
+  data:() => {
+    return {
+      currencyFormat
+    }
+  },
 
   created() {
     this.updateBalance()

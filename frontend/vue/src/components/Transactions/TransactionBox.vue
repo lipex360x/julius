@@ -2,33 +2,29 @@
   <div class="transactionBox">
     <div class="iconAction">
       <img
-        :src="transactionType === 'receita' ? mais : menos"
+        :src="transactionType === 'receita' ? maisImg : menosImg"
         :alt="transactionType === 'receita' ? 'Receita' : 'despesa'"
         class="transactionType"
       />
 
       <button @click="deleteTransaction(transaction.id)">
-        <img src="../../assets/images/lixeira.png" alt="Delete Transaction" />
+        <img :src="lixeiraImg" alt="Delete Transaction" />
       </button>
     </div>
 
     <div class="transactionDetails">
       <span :class="transactionType === 'receita' ? 'value up' : 'value down'">
-        {{
-          transaction.value.toLocaleString("pt-br", {
-            style: "currency",
-            currency: "BRL",
-          })
-        }}
+        {{ currencyFormat(transaction.value) }}
       </span>
 
       <span class="data">
-        {{ new Date(transaction.date).toLocaleDateString() }}
+        {{ dateFormat(transaction.date) }}
       </span>
 
       <span class="description">
         {{ transaction.description }}
       </span>
+      
     </div>
   </div>
 </template>
@@ -36,21 +32,17 @@
 <script>
 import { mapActions } from 'vuex'
 
-import mais from "../../assets/images/mais.png";
-import menos from "../../assets/images/menos.png";
+import maisImg from "../../assets/images/mais.png";
+import menosImg from "../../assets/images/menos.png";
+import lixeiraImg from '../../assets/images/lixeira.png'
+
+import dateFormat from '../../utils/dateFormat'
+import currencyFormat from '../../utils/currencyFormat'
 
 export default {
-  name: "TransactionBox",
+  name: "TransactionBox",  
+  methods: mapActions(['deleteTransaction']), 
   
-  methods: mapActions(['deleteTransaction']),
-
-  data: () => {
-    return {
-      mais,
-      menos,
-    };
-  },
-
   props: {
     transactionType: String,
     transaction: {
@@ -60,6 +52,17 @@ export default {
       description: String,
     },
   },
+
+  data: () => {
+    return {
+      dateFormat,
+      currencyFormat,
+      maisImg,
+      menosImg,
+      lixeiraImg
+    };
+  },
+
 };
 </script>
 

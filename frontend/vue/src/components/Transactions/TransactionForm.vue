@@ -52,6 +52,7 @@ export default {
         value: this.type === 'receita' ? this.value : this.value * -1,
         description: this.description
       })
+      
       this.saveTransaction(transaction)
       this.cleanForm()
     },
