@@ -43,8 +43,8 @@ export default {
   }
 
   body {
-    background: rgb(122,162,255);
-    background: linear-gradient(45deg, rgba(122,162,255,1) 0%, rgba(95,50,162,1) 25%, rgba(250,34,66,1) 25%, rgba(122,162,255,1) 100%) fixed;
+    background: rgb(110,117,222);
+    background: linear-gradient(49deg, rgba(110,117,222,1) 0%, rgba(125,46,108,1) 100%) fixed;
   }
   .container {
     max-width: 1040px;
