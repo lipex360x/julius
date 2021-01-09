@@ -3,24 +3,18 @@
     <TransactionForm />
 
     <div id="transactionSection">
-
-      <!-- <TransactionBox
-        v-for="transaction in getTransactions"
-        v-bind:key="transaction.id"
-        :transactionType="transaction.value > 0 ? 'receita' : 'despesa'"
-        :transaction="transaction"
-      /> -->
-
+      <TransactionBox />
     </div>
   </div>
 </template>
 
 <script>
 import TransactionForm from './TransactionForm.vue'
+import TransactionBox from './TransactionBox.vue'
 
 export default {
   name: 'TransactionDash',
-  components: { TransactionForm }
+  components: { TransactionForm, TransactionBox }
 }
 
 </script>

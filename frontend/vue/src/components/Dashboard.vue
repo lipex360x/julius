@@ -18,7 +18,7 @@ export default {
 <style scoped>
 
 .dashboard {
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.3);
   padding: 10px;
   width: 1020px;
   border-radius:6px;

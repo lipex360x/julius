@@ -1,52 +1,35 @@
 <template>
   <div class="transactionBox">
     <img
-      v-if="transactionType === 'receita'"
-      src="@/img/mais.png"
+      src="../../assets/images/mais.png"
       alt="Receita"
       class="transactionType"
     />
-    <img
-      v-else-if="transactionType === 'despesa'"
-      src="@/img/menos.png"
-      alt="Despesa"
-      class="transactionType"
-    />
-
-    <!-- <button class="transactionButton">
-      <img src="@/img/lixeira.png" alt="Remove Entry" />
-    </button> -->
 
     <div class="transactionDetails">
-      <span v-if="transactionType === 'receita'" class="value up">{{ transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
-      <span v-else-if="transactionType === 'despesa'" class="value down">{{  transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
-      <span class="data">{{ new Date(transaction.date).toLocaleDateString() }}</span>
-      <span class="description">{{ transaction.description }}</span>
+      <span class="value up">200</span>
+      <span class="data">08/01/2020</span>
+      <span class="description">lorem ipsum dolor</span>
     </div>
+
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
+export default {
   name: 'TransactionBox',
-
   props: {
     transactionType: String,
     transaction: {
-      definition: String,
       value: Number,
-      date: Date,
+      date: String,
       description: String
     }
-  },
-
-  components: {}
-})
+  }
+}
 </script>
 
-<style scoped>
+<style>
 .transactionBox {
   display: flex;
   align-items: center;
@@ -59,6 +42,7 @@ export default defineComponent({
   -moz-box-shadow: 0px 2px 4px 0px rgba(190, 190, 190);
   box-shadow: 0px 2px 4px 0px rgb(190, 190, 190);
 }
+
 
 img.transactionType {
   width: 12%;
@@ -99,4 +83,5 @@ button.transactionButton img:active {
   font-size: 90%;
   font-family: "padrao";
 }
+
 </style>
