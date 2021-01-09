@@ -39,7 +39,6 @@ export default {
 <style scoped>
 .transactionForm {
   font-family: "padrao";
-  margin-top: 15px;
   border-radius: 4px;
   padding: 20px 15px;
   font-size: 90%;

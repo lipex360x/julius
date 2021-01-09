@@ -1,15 +1,24 @@
 <template>
   <div class="transactionBox">
     <img
+      v-if="transactionType==='receita'"
       src="../../assets/images/mais.png"
       alt="Receita"
       class="transactionType"
     />
 
+    <img
+      v-else-if="transactionType==='despesa'"
+      src="../../assets/images/menos.png"
+      alt="Receita"
+      class="transactionType"
+    />
+
     <div class="transactionDetails">
-      <span class="value up">200</span>
-      <span class="data">08/01/2020</span>
-      <span class="description">lorem ipsum dolor</span>
+      <span v-if="transactionType === 'receita'" class="value up">{{ transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
+      <span v-else-if="transactionType === 'despesa'" class="value down">{{  transaction.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span>
+      <span class="data">{{ new Date(transaction.date).toLocaleDateString() }}</span>
+      <span class="description">{{ transaction.description }}</span>
     </div>
 
   </div>
@@ -38,11 +47,7 @@ export default {
   padding: 20px 15px;
   border-radius: 6px;
   background-image: linear-gradient(to top, #f1f1f1, #fafafa);
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(190, 190, 190);
-  -moz-box-shadow: 0px 2px 4px 0px rgba(190, 190, 190);
-  box-shadow: 0px 2px 4px 0px rgb(190, 190, 190);
 }
-
 
 img.transactionType {
   width: 12%;

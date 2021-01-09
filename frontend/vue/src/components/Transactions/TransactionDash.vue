@@ -3,18 +3,25 @@
     <TransactionForm />
 
     <div id="transactionSection">
-      <TransactionBox />
+      <TransactionBox 
+        v-for="transaction in getTransactions"
+        :key="transaction.id"
+        :transactionType="transaction.value > 0 ? 'receita' : 'despesa'"
+        :transaction="transaction"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import TransactionForm from './TransactionForm.vue'
 import TransactionBox from './TransactionBox.vue'
 
 export default {
   name: 'TransactionDash',
-  components: { TransactionForm, TransactionBox }
+  components: { TransactionForm, TransactionBox },
+  computed: mapGetters(['getTransactions'])
 }
 
 </script>

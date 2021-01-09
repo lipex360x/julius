@@ -47,7 +47,7 @@ export default {
     background: linear-gradient(45deg, rgba(122,162,255,1) 0%, rgba(95,50,162,1) 25%, rgba(250,34,66,1) 25%, rgba(122,162,255,1) 100%) fixed;
   }
   .container {
-    width: 1040px;
+    max-width: 1040px;
     display: flex;
     margin: 0 auto;
   }
