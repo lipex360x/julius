@@ -27,11 +27,34 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+import TransactionModel from '../../models/TransactionModel'
+
 export default {
+  
   name: 'TransactionForm',
   data: () => {
-    
+    return {
+      type: 'despesa',
+      value: undefined,
+      description: '',
+      date: ''
+    }
   },
+
+  methods: {
+    ...mapActions(['saveTransaction']),
+
+    newTransaction(event) {
+      event.preventDefault()
+      const transaction = new TransactionModel({
+        date: this.date,
+        value: this.type === 'receita' ? this.value : this.value * -1,
+        description: this.description
+      })
+      this.saveTransaction(transaction)
+    }
+  }
 }
 </script>
 

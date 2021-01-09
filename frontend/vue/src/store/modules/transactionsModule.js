@@ -31,11 +31,15 @@ const transactionsModule = {
   },
 
   actions: {
-
+    saveTransaction: ( { commit }, transaction ) => {
+      commit('createTransaction', transaction )
+    }
   },
 
   mutations: {
-
+    createTransaction: (state, transaction) => {
+      state.transactions.unshift(transaction)
+    }
   }
 }
 

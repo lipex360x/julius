@@ -49,10 +49,11 @@ export default defineComponent({
       event.preventDefault()
       const transaction = new Transaction({
         date: this.date,
-        value: this.value,
+        value: this.type === 'receita' ? this.value : this.value * -1,
         description: this.description
       })
-      this.mapActionss(transaction)
+      console.log('this.type')
+      this.mapActions(transaction)
     }
   }
 })
