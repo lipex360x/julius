@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 div {
   background: #fff;
   font-family: "negrito";
