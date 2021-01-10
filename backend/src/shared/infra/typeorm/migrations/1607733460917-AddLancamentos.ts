@@ -13,19 +13,19 @@ export default class AddLancamentos1607733460917 implements MigrationInterface {
           },
 
           {
-            name: 'descricao',
+            name: 'description',
             type: 'text'
           },
 
           {
-            name: 'valor',
+            name: 'value',
             type: 'decimal',
             scale: 2
           },
 
           {
-            name: 'data',
-            type: 'timestamp with time zone'
+            name: 'date',
+            type: 'varchar'
           },
 
           {

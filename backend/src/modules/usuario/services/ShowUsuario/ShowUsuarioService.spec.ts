@@ -25,9 +25,9 @@ describe('ShowUsuario', () => {
 
     await fakeLancamentoRepository.create({
       usuario_id: user.usuario_id,
-      descricao: Faker.lorem.words(),
-      data: new Date(),
-      valor: 30.90
+      description: Faker.lorem.words(),
+      date: new Date().toString(),
+      value: 30.90
     })
 
     const getUsuario = await showUsuarioService.execute({ usuario_id: user.usuario_id })

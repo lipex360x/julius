@@ -28,9 +28,9 @@ describe('CreateLancamento', () => {
 
     const lancamento = await createLancamentoService.execute({
       usuario_id: user.usuario_id,
-      descricao: Faker.lorem.words(2),
-      data: new Date(),
-      valor: 35.90
+      description: Faker.lorem.words(2),
+      date: new Date().toString(),
+      value: 35.90
     })
 
     expect(lancamento).toHaveProperty('lancamento_id')
@@ -40,9 +40,9 @@ describe('CreateLancamento', () => {
     await expect(
       createLancamentoService.execute({
         usuario_id: Faker.random.uuid(),
-        descricao: Faker.lorem.words(2),
-        data: Faker.date.recent(),
-        valor: 35.90
+        description: Faker.lorem.words(2),
+        date: Faker.date.recent().toString(),
+        value: 35.90
       })
     ).rejects.toBeInstanceOf(AppError)
   })

@@ -8,9 +8,9 @@ import IUsuarioRepository from '@modules/usuario/repositories/interfaces/IUsuari
 
 interface Request{
   usuario_id: string
-  descricao: string
-  data: Date
-  valor: number
+  description: string
+  date: string
+  value: number
 }
 
 @injectable()
@@ -23,12 +23,12 @@ export default class CreateLancamentoService {
     private usuarioRepository: IUsuarioRepository
   ) {}
 
-  async execute ({ usuario_id, descricao, valor, data }: Request): Promise<Lancamento> {
+  async execute ({ usuario_id, description, value, date }: Request): Promise<Lancamento> {
     const getUsuario = await this.usuarioRepository.findById({ usuario_id })
 
     if (!getUsuario) throw new AppError('This user does not exists')
 
-    const lancamento = await this.repository.create({ usuario_id, descricao, valor, data })
+    const lancamento = await this.repository.create({ usuario_id, description, value, date })
 
     return lancamento
   }

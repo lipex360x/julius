@@ -10,9 +10,9 @@ const createLancamentoController = new CreateLancamentoController()
 router.post('/', celebrate({
   [Segments.BODY]: {
     usuario_id: Joi.string().required(),
-    descricao: Joi.string().required(),
-    data: Joi.date().required(),
-    valor: Joi.number().required()
+    description: Joi.string().required(),
+    date: Joi.string().required(),
+    value: Joi.number().required()
   }
 }), createLancamentoController.create)
 

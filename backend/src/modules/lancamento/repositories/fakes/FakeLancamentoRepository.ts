@@ -6,15 +6,15 @@ import ILancamentoRepository, { CreateProps } from '../interfaces/ILancamentoRep
 export default class FakeLancamentoRepository implements ILancamentoRepository {
   private repository: Lancamento[] = []
 
-  async create ({ usuario_id, descricao, valor, data }:CreateProps): Promise<Lancamento> {
+  async create ({ usuario_id, description, value, date }:CreateProps): Promise<Lancamento> {
     const lancamento = new Lancamento()
 
     Object.assign(lancamento, {
       lancamento_id: uuid(),
       usuario_id,
-      descricao,
-      valor,
-      data,
+      description,
+      value,
+      date,
       created_at: new Date(),
       updated_at: new Date()
     })

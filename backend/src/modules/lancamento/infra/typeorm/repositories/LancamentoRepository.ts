@@ -10,8 +10,8 @@ export default class LancamentoRepository implements ILancamentoRepository {
     this.repository = getRepository(Lancamento)
   }
 
-  async create ({ usuario_id, descricao, valor, data }:CreateProps): Promise<Lancamento> {
-    const lancamento = this.repository.create({ usuario_id, descricao, valor, data })
+  async create ({ usuario_id, description, value, date }:CreateProps): Promise<Lancamento> {
+    const lancamento = this.repository.create({ usuario_id, description, value, date })
 
     await this.repository.save(lancamento)
 

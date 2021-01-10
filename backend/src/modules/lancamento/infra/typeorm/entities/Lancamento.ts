@@ -17,13 +17,13 @@ export default class Lancamento {
   lancamento_id: string;
 
   @Column()
-  descricao: string;
+  description: string;
 
   @Column('decimal', { scale: 2 })
-  valor: number;
+  value: number;
 
   @Column('timestamp with time zone')
-  data: Date;
+  date: string;
 
   @ManyToOne(() => Usuario, usuario => usuario.lancamentos)
   @JoinColumn({ name: 'usuario_id' })
