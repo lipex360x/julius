@@ -3,11 +3,13 @@ import { celebrate, Joi, Segments } from 'celebrate'
 
 import CreateLancamentoController from '../controllers/CreateLancamentoController'
 import ListLancamentosController from '../controllers/ListLancamentosController'
+import DeleteLancamentoController from '../controllers/DeleteLancamentoController'
 
 const router = Router()
 
 const createLancamentoController = new CreateLancamentoController()
 const listLancamentosController = new ListLancamentosController()
+const deleteLancamentoController = new DeleteLancamentoController()
 
 router.post('/', celebrate({
   [Segments.BODY]: {
@@ -19,5 +21,7 @@ router.post('/', celebrate({
 }), createLancamentoController.create)
 
 router.get('/:usuario_id', listLancamentosController.index)
+
+router.delete('/:lancamento_id', deleteLancamentoController.delete)
 
 export default router

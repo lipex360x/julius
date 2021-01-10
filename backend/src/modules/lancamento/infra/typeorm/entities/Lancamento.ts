@@ -7,7 +7,8 @@ import {
   UpdateDateColumn,
   BeforeInsert,
   ManyToOne,
-  JoinColumn
+  JoinColumn,
+  DeleteDateColumn
 } from 'typeorm'
 import Usuario from '@modules/usuario/infra/typeorm/entities/Usuario'
 
@@ -37,6 +38,9 @@ export default class Lancamento {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @DeleteDateColumn()
+  deleted_at: Date;
 
   @BeforeInsert()
   lancamentoProps (): void {
