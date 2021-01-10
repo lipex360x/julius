@@ -5,7 +5,7 @@
     <div id="transactionSection">
       <TransactionBox 
         v-for="transaction in getTransactions"
-        :key="transaction.id"
+        :key="transaction.lancamento_id"
         :transactionType="transaction.value > 0 ? 'receita' : 'despesa'"
         :transaction="transaction"
       />

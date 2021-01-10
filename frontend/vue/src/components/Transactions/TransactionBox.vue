@@ -7,7 +7,7 @@
         class="transactionType"
       />
 
-      <button @click="deleteTransaction(transaction.id)">
+      <button @click="deleteTransaction(transaction.lancamento_id)">
         <img :src="lixeiraImg" alt="Delete Transaction" />
       </button>
     </div>
@@ -24,7 +24,7 @@
       <span class="description">
         {{ transaction.description }}
       </span>
-      
+
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@ const transactionsModule = {
   actions: {
     getAllTransactions: async ({commit}) => {
       const response = await api.get(`/lancamentos/${process.env.VUE_APP_USER_ID}`)
-
+    
       commit('getTransactionsByUser', response.data)
       commit('setBalance')
     },
@@ -26,9 +26,9 @@ const transactionsModule = {
         description: transaction.description,
         date: transaction.date
       }
-      await api.post('/lancamentos', apiTransaction)
+      const newLancamento = await api.post('/lancamentos', apiTransaction)
 
-      commit('createTransaction', transaction );
+      commit('createTransaction', newLancamento.data );
       commit('setBalance')
     },
 
@@ -36,10 +36,12 @@ const transactionsModule = {
       commit('setBalance')
     },
 
-    deleteTransaction: async ({ commit }, id) => {
-      
-      commit('setTransactions', id);
-      commit('setBalance')
+    deleteTransaction: async ({ commit }, lancamento_id) => {
+      console.log(lancamento_id)
+      await api.delete(`/lancamentos/${lancamento_id}`)
+
+      commit('setTransactions', lancamento_id);
+      commit('setBalance')       
     }
   },
 
@@ -60,8 +62,8 @@ const transactionsModule = {
       state.balance = balance
     },
 
-    setTransactions: (state, id) => {
-      state.transactions = state.transactions.filter(transaction => transaction.id !== id)
+    setTransactions: (state, lancamento_id) => {
+      state.transactions = state.transactions.filter(transaction => transaction.lancamento_id !== lancamento_id)
     }
   }
 }
