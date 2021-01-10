@@ -20,7 +20,6 @@
     "seed:run": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed",
     "test": "jest --passWithNoTests --noStackTrace --setupFiles dotenv/config",
     "test:c": "jest --clearCache",
-    "test:v": "jest --passWithNoTests"
   },
   "dependencies": {
     "celebrate": "^13.0.4",
