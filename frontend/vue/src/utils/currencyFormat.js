@@ -1,5 +1,5 @@
 export default function (currency) {
-  return currency.toLocaleString("pt-br", {
+  return  parseFloat(currency).toLocaleString("pt-br", {
     style: "currency",
     currency: "BRL",
   })

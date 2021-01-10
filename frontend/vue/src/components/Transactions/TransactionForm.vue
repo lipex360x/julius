@@ -4,23 +4,23 @@
 
       <div class="transactionType">
         <input type="radio" name="transactionTypeInput" id="upRadio" value="receita" v-model="type">
-        <label for="upRadio" class="up">Entrada</label>
+        <label for="upRadio" class="up">Incoming</label>
 
         <input type="radio" name="transactionTypeInput" id="downRadio" value="despesa" v-model="type" checked>
-        <label for="downRadio" class="down">Saída</label>
+        <label for="downRadio" class="down">Outcoming</label>
       </div>
 
-      <label for="inputValue">Valor </label>
+      <label for="inputValue">Value</label>
       <input type="number" step="0.01" min="0" name="transactionValue" id="inputValue" v-model.number="value" required>
 
-      <label for="inputDescription">Descrição</label>
+      <label for="inputDescription">Description</label>
       <input type="text" name="transactionDescription" id="inputDescription" v-model="description" required>
 
-      <label for="inputDate">Data do Lançamento</label>
+      <label for="inputDate">Date</label>
       <input type="date" name="transactionDate" id="inputDate" v-model="date" required>
 
       <div id="transactionButton">
-        <button>Criar Lançamento</button>
+        <button>Create Transaction</button>
       </div>
 
     </form>

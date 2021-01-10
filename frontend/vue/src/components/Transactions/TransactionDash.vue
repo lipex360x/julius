@@ -14,14 +14,19 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import TransactionForm from './TransactionForm.vue'
 import TransactionBox from './TransactionBox.vue'
 
 export default {
   name: 'TransactionDash',
   components: { TransactionForm, TransactionBox },
-  computed: mapGetters(['getTransactions'])
+  computed: mapGetters(['getTransactions']),
+  methods: mapActions(['getAllTransactions']),
+  
+  created() {
+    this.getAllTransactions()
+  }
 }
 
 </script>

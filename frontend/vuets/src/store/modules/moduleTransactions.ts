@@ -1,3 +1,5 @@
+import { CommitOptions } from 'vuex'
+
 interface Transaction {
   id: string;
   value: number;
@@ -10,7 +12,7 @@ interface Transactions {
   balance: number;
 }
 
-interface CommitProps {
+type CommitProps = {
   mutation: string;
   data: Transaction;
 }
@@ -49,7 +51,7 @@ const moduleTransactions = {
   },
 
   actions: {
-    saveTransaction: ({ commit }, transaction: Transaction) => {
+    saveTransaction: ({ commit }: CommitOptions, transaction: Transaction) => {
       commit('createTransaction', transaction)
     }
   },

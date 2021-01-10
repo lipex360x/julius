@@ -37,7 +37,7 @@ export default {
 .analyticsDash {
   padding: 20px 15px;
   width: 60%;
-  max-height: 400px;
+  max-height: 393px;
   margin-left: 15px;
   border-radius: 6px;
   background-image: linear-gradient(to top, #f1f1f1, #fafafa);

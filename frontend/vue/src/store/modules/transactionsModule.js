@@ -1,27 +1,8 @@
+import api from '../../services/api'
+
 const transactionsModule = {
   state: {
-    transactions: [
-      {
-        id: Math.random().toString(36).substr(2, 8),
-        value: 300,
-        description: 'receita',
-        date: '2020-03-01'
-      },
-
-      {
-        id: Math.random().toString(36).substr(2, 8),
-        value: -1300,
-        description: 'despesa',
-        date: '2020-01-01'
-      },
-
-      {
-        id: Math.random().toString(36).substr(2, 8),
-        value: 250,
-        description: 'receita',
-        date: '2020-07-01'
-      }
-    ],
+    transactions: [],
     balance: 0,
   },
 
@@ -31,7 +12,22 @@ const transactionsModule = {
   },
 
   actions: {
-    saveTransaction: ( { commit }, transaction ) => {
+    getAllTransactions: async ({commit}) => {
+      const response = await api.get(`/usuarios/${process.env.VUE_APP_USER_ID}`)
+
+      commit('getTransactionsByUser', response.data.lancamentos)
+      commit('setBalance')
+    },
+    
+    saveTransaction: async ( { commit }, transaction ) => {
+      const apiTransaction = {
+        usuario_id: `${process.env.VUE_APP_USER_ID}`,
+        value: transaction.value,
+        description: transaction.description,
+        date: transaction.date
+      }
+      await api.post('/lancamentos', apiTransaction)
+
       commit('createTransaction', transaction );
       commit('setBalance')
     },
@@ -51,10 +47,12 @@ const transactionsModule = {
       state.transactions.unshift(transaction)
     },
 
+    getTransactionsByUser:(state, transactions) => state.transactions = transactions,
+
     setBalance: (state) => {
       const balance = state.transactions.length > 0 
         ? state.transactions
-          .map(transaction => transaction.value)
+          .map(transaction => parseFloat(transaction.value))
           .reduce((sum, value) => sum + value)
         : 0
       

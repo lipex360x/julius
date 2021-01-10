@@ -8,6 +8,7 @@
 import { mapGetters } from 'vuex'
 import Chart from 'chart.js'
 import dateFormat from '../../utils/dateFormat'
+import chartOptions from './chartOptions'
 
 export default {
   name: "AnalyticsChart",
@@ -26,17 +27,20 @@ export default {
         let values = []
         let currentValue = 0
 
-        transactions.forEach( transaction => {
+        
+
+        transactionsOrdered.forEach( transaction => {
           const date = dateFormat(transaction.date)
           dates.push(date)
 
-          currentValue += transaction.value
+          currentValue += parseFloat(transaction.value)
           values.push(currentValue)
         })
 
         const colorCurve = currentValue < 0 ? 'red' : 'blue'
         const chartConfig = {
           type: 'line',
+          options: chartOptions,
           data: {
             labels: dates,
             datasets: [{
@@ -46,14 +50,11 @@ export default {
               data: values,
               fill: false
             }],
-          },
-          options: this.chartOptions
+          }
         }
 
         const ctx  = chartArea.getContext('2d')
         new Chart(ctx , chartConfig)
-
-        console.log(transactionsOrdered)
       }
     }
   },
@@ -69,46 +70,6 @@ export default {
         this.renderChart()
       }
     })
-  },
-
-  data: () => {
-    return {
-      chartOptions: {
-        responsive: true,
-        title: {
-          display: true,
-          text: "Account Behavior",
-        },
-        tooltips: {
-          mode: "index",
-          intersect: false,
-        },
-        hover: {
-          mode: "nearest",
-          intersect: true,
-        },
-        scales: {
-          xAxes: [
-            {
-              display: true,
-              scaleLabel: {
-                display: true,
-                labelString: "Days",
-              },
-            },
-          ],
-          yAxes: [
-            {
-              display: true,
-              scaleLabel: {
-                display: true,
-                labelString: "Balance",
-              },
-            },
-          ],
-        },
-      },
-    };
   },
 
 };

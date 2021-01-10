@@ -9,7 +9,7 @@
       </div>
 
       <div class="slogan">
-        <span>Sua Vida Financeiro no Eixo</span>
+        <span>Your Financial Life on the Axes</span>
       </div>
 
     </div>
