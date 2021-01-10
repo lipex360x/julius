@@ -13,9 +13,9 @@ const transactionsModule = {
 
   actions: {
     getAllTransactions: async ({commit}) => {
-      const response = await api.get(`/usuarios/${process.env.VUE_APP_USER_ID}`)
+      const response = await api.get(`/lancamentos/${process.env.VUE_APP_USER_ID}`)
 
-      commit('getTransactionsByUser', response.data.lancamentos)
+      commit('getTransactionsByUser', response.data)
       commit('setBalance')
     },
     
@@ -36,7 +36,8 @@ const transactionsModule = {
       commit('setBalance')
     },
 
-    deleteTransaction: ({ commit }, id) => {
+    deleteTransaction: async ({ commit }, id) => {
+      
       commit('setTransactions', id);
       commit('setBalance')
     }

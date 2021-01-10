@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
 import Lancamento from '@modules/lancamento/infra/typeorm/entities/Lancamento'
-import ILancamentoRepository, { CreateProps, FindByUsuarioIdProps } from '../interfaces/ILancamentoRepository'
+import ILancamentoRepository, { CreateProps, DeleteProps, FindByUsuarioIdProps } from '../interfaces/ILancamentoRepository'
 
 export default class FakeLancamentoRepository implements ILancamentoRepository {
   private repository: Lancamento[] = []
@@ -28,5 +28,15 @@ export default class FakeLancamentoRepository implements ILancamentoRepository {
     const getLancamentos = this.repository.filter(Lancamento => Lancamento.usuario_id === usuario_id)
 
     return getLancamentos
+  }
+
+  async delete ({ lancamento_id }:DeleteProps): Promise<Lancamento> {
+    const getLancamento = this.repository.find(lancamento => lancamento.lancamento_id === lancamento_id)
+
+    const deleteLancamentos = this.repository.filter(lancamento => lancamento.lancamento_id !== lancamento_id)
+
+    this.repository = deleteLancamentos
+
+    return getLancamento
   }
 }
