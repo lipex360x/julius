@@ -11,12 +11,17 @@ export interface FindByUsuarioIdProps {
   usuario_id: string
 }
 
-export interface DeleteProps {
+export interface FindByIdProps {
   lancamento_id: string
+}
+
+export interface SaveProps {
+  lancamento: Lancamento
 }
 
 export default interface ILancamentoRepository {
   create(data: CreateProps): Promise<Lancamento>
+  save(data: SaveProps): Promise<Lancamento>
+  findById(data: FindByIdProps): Promise<Lancamento>
   findByUsuarioId(data: FindByUsuarioIdProps): Promise<Lancamento[]>
-  delete(data: DeleteProps): Promise<Lancamento>
 }
