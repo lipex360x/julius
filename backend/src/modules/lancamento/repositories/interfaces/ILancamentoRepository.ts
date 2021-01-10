@@ -13,5 +13,5 @@ export interface FindByUsuarioIdProps {
 
 export default interface ILancamentoRepository {
   create(data: CreateProps): Promise<Lancamento>
-  // findByUsuarioId(data: FindByUsuarioIdProps): Promise<Lancamento[]>
+  findByUsuarioId(data: FindByUsuarioIdProps): Promise<Lancamento[]>
 }
