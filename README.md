@@ -3,7 +3,7 @@
 
 ---
 
-![Julius](https://github.com/lipex360x/julius/blob/master/frontend/html/img/julius.jpg)
+![Julius](https://github.com/lipex360x/julius/blob/master/frontend/html/img/frontend.jpg)
 
 ---
 
