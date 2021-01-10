@@ -51,8 +51,12 @@
 
 * Packages and Tecnologies
 ```json
-Under Construction
+ Vue3
+ Vuex4
+ ChartJS
+ Axios
 ```
+:rocket: [Go to Vue Frontend Folder](https://github.com/lipex360x/julius/tree/master/frontend/vue)
 
 ---
 
