@@ -6,11 +6,11 @@ import CreateUsuarioService from '@modules/usuario/services/CreateUsuario/Create
 
 export default class CreateUsuarioController {
   async create (request: Request, response: Response): Promise<Response> {
-    const { nome, email } = request.body
+    const { nome, email, senha } = request.body
 
     const service = container.resolve(CreateUsuarioService)
 
-    const createUsuario = await service.execute({ nome, email })
+    const createUsuario = await service.execute({ nome, email, senha })
 
     return response.json(classToClass(createUsuario))
   }

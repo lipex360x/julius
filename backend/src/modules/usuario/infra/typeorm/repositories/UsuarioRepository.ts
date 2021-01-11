@@ -10,8 +10,8 @@ export default class UsuarioRepository implements IUsuarioRepository {
     this.repository = getRepository(Usuario)
   }
 
-  async create ({ nome, email }:CreateProps): Promise<Usuario> {
-    const usuario = this.repository.create({ nome, email })
+  async create ({ nome, email, senha }:CreateProps): Promise<Usuario> {
+    const usuario = this.repository.create({ nome, email, senha })
 
     await this.repository.save(usuario)
 
