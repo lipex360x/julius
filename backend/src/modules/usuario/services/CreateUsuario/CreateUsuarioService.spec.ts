@@ -17,7 +17,8 @@ describe('CreateUsuario', () => {
   it('should be able to create a new user', async () => {
     const newUser = await createUsuarioService.execute({
       nome: Faker.name.firstName(),
-      email: Faker.internet.email()
+      email: Faker.internet.email(),
+      senha: Faker.internet.password()
     })
 
     expect(newUser).toHaveProperty('usuario_id')
@@ -26,13 +27,15 @@ describe('CreateUsuario', () => {
   it('should not be able to create a new user with duplicate email', async () => {
     const user = await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
-      email: Faker.internet.email()
+      email: Faker.internet.email(),
+      senha: Faker.internet.password()
     })
 
     await expect(
       createUsuarioService.execute({
         nome: Faker.name.findName(),
-        email: user.email
+        email: user.email,
+        senha: Faker.internet.password()
       })
     ).rejects.toBeInstanceOf(AppError)
   })

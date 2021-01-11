@@ -15,17 +15,20 @@ describe('ListUsuarios', () => {
   it('should be able to list users', async () => {
     await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
-      email: Faker.internet.email()
+      email: Faker.internet.email(),
+      senha: Faker.internet.password()
     })
 
     await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
-      email: Faker.internet.email()
+      email: Faker.internet.email(),
+      senha: Faker.internet.password()
     })
 
     await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
-      email: Faker.internet.email()
+      email: Faker.internet.email(),
+      senha: Faker.internet.password()
     })
 
     const getUsuarios = await listUsuariosService.execute()

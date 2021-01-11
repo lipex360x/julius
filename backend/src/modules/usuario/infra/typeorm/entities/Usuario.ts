@@ -1,4 +1,6 @@
 import { v4 as uuid } from 'uuid'
+import bcrypt from 'bcryptjs'
+
 import {
   Entity,
   Column,
@@ -6,7 +8,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   BeforeInsert,
-  OneToMany
+  OneToMany,
+  BeforeUpdate
 } from 'typeorm'
 import Lancamento from '@modules/lancamento/infra/typeorm/entities/Lancamento'
 
@@ -21,6 +24,9 @@ export default class Usuario {
   @Column()
   email: string;
 
+  @Column()
+  senha: string;
+
   @OneToMany(() => Lancamento, lancamento => lancamento.usuario, { eager: true })
   lancamentos: Lancamento[]
 
@@ -33,5 +39,11 @@ export default class Usuario {
   @BeforeInsert()
   usuarioProps (): void {
     this.usuario_id = uuid()
+  }
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  hashPassword (): void {
+    this.senha = bcrypt.hashSync(this.senha, 8)
   }
 }

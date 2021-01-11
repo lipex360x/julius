@@ -23,7 +23,8 @@ describe('CreateLancamento', () => {
   it('should be able to create a new entry', async () => {
     const user = await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
-      email: Faker.internet.email()
+      email: Faker.internet.email(),
+      senha: Faker.internet.password()
     })
 
     const lancamento = await createLancamentoService.execute({

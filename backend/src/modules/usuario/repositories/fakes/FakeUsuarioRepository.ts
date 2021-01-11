@@ -6,13 +6,14 @@ import IUsuarioRepository, { CreateProps, FindByIdProps, FindByEmailProps } from
 export default class FakeUsuarioRepository implements IUsuarioRepository {
   private repository: Usuario[] = []
 
-  async create ({ nome, email }:CreateProps): Promise<Usuario> {
+  async create ({ nome, email, senha }:CreateProps): Promise<Usuario> {
     const usuario = new Usuario()
 
     Object.assign(usuario, {
       usuario_id: uuid(),
       nome,
       email,
+      senha,
       created_at: new Date(),
       updated_at: new Date()
     })
