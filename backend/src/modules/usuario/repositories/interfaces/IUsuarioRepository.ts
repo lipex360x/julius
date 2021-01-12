@@ -3,7 +3,7 @@ import Usuario from '@modules/usuario/infra/typeorm/entities/Usuario'
 export interface CreateProps {
   nome: string,
   email: string,
-  senha: string
+  password: string
 }
 
 export interface FindByIdProps {

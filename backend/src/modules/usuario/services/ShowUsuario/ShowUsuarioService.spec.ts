@@ -21,7 +21,7 @@ describe('ShowUsuario', () => {
     const user = await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
       email: Faker.internet.email(),
-      senha: Faker.internet.password()
+      password: Faker.internet.password()
     })
 
     await fakeLancamentoRepository.create({

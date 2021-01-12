@@ -24,7 +24,7 @@ describe('CreateLancamento', () => {
     const user = await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
       email: Faker.internet.email(),
-      senha: Faker.internet.password()
+      password: Faker.internet.password()
     })
 
     const lancamento = await createLancamentoService.execute({

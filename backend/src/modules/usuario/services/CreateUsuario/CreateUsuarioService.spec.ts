@@ -18,7 +18,7 @@ describe('CreateUsuario', () => {
     const newUser = await createUsuarioService.execute({
       nome: Faker.name.firstName(),
       email: Faker.internet.email(),
-      senha: Faker.internet.password()
+      password: Faker.internet.password()
     })
 
     expect(newUser).toHaveProperty('usuario_id')
@@ -28,14 +28,14 @@ describe('CreateUsuario', () => {
     const user = await fakeUsuarioRepository.create({
       nome: Faker.name.firstName(),
       email: Faker.internet.email(),
-      senha: Faker.internet.password()
+      password: Faker.internet.password()
     })
 
     await expect(
       createUsuarioService.execute({
         nome: Faker.name.findName(),
         email: user.email,
-        senha: Faker.internet.password()
+        password: Faker.internet.password()
       })
     ).rejects.toBeInstanceOf(AppError)
   })

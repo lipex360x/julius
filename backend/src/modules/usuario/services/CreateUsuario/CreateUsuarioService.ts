@@ -8,7 +8,7 @@ import IUsuarioRepository from '@modules/usuario/repositories/interfaces/IUsuari
 interface Request{
   nome: string,
   email: string,
-  senha: string
+  password: string
 }
 
 @injectable()
@@ -18,12 +18,12 @@ export default class CreateUsuarioService {
     private repository: IUsuarioRepository
   ) {}
 
-  async execute ({ nome, email, senha }: Request): Promise<Usuario> {
+  async execute ({ nome, email, password }: Request): Promise<Usuario> {
     const getUsuario = await this.repository.findByEmail({ email })
 
     if (getUsuario) throw new AppError('This email already exists')
 
-    const usuario = await this.repository.create({ nome, email, senha })
+    const usuario = await this.repository.create({ nome, email, password })
 
     return usuario
   }

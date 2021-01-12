@@ -12,6 +12,7 @@ import {
   BeforeUpdate
 } from 'typeorm'
 import Lancamento from '@modules/lancamento/infra/typeorm/entities/Lancamento'
+import { Exclude } from 'class-transformer'
 
 @Entity('usuarios')
 export default class Usuario {
@@ -25,7 +26,8 @@ export default class Usuario {
   email: string;
 
   @Column()
-  senha: string;
+  @Exclude()
+  password: string;
 
   @OneToMany(() => Lancamento, lancamento => lancamento.usuario, { eager: true })
   lancamentos: Lancamento[]
@@ -44,6 +46,6 @@ export default class Usuario {
   @BeforeInsert()
   @BeforeUpdate()
   hashPassword (): void {
-    this.senha = bcrypt.hashSync(this.senha, 8)
+    this.password = bcrypt.hashSync(this.password, 8)
   }
 }

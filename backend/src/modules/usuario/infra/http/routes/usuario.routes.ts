@@ -15,7 +15,7 @@ router.post('/', celebrate({
   [Segments.BODY]: {
     nome: Joi.string().required(),
     email: Joi.string().email().required(),
-    senha: Joi.string().required()
+    password: Joi.string().required()
   }
 }), createUsuarioController.create)
 
