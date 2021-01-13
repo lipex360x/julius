@@ -2,15 +2,15 @@ import AppError from '@shared/errors/AppError'
 import Faker from 'faker'
 
 import FakeUsuarioRepository from '@modules/usuario/repositories/fakes/FakeUsuarioRepository'
-import AuthUsuarioService from './AuthUsuarioService'
+import CreateSessionService from './CreateSessionService'
 
 let fakeUsuarioRepository: FakeUsuarioRepository
-let authUsuarioService: AuthUsuarioService
+let createSessionService: CreateSessionService
 
 describe('AuthUsuario', () => {
   beforeEach(() => {
     fakeUsuarioRepository = new FakeUsuarioRepository()
-    authUsuarioService = new AuthUsuarioService(fakeUsuarioRepository)
+    createSessionService = new CreateSessionService(fakeUsuarioRepository)
   })
 
   it('should be able to authenticate an user', async () => {
@@ -20,13 +20,13 @@ describe('AuthUsuario', () => {
       password: '123456'
     })
 
-    const response = await authUsuarioService.execute({ email: 'johndoe@mail.com', password: '123456' })
+    const response = await createSessionService.execute({ email: 'johndoe@mail.com', password: '123456' })
 
     expect(response).toHaveProperty('token')
   })
 
   it('should not be able to authenticate a non-existing user', async () => {
-    await expect(authUsuarioService.execute({
+    await expect(createSessionService.execute({
       email: 'johndoe@mail.com', password: '123456'
     })).rejects.toBeInstanceOf(AppError)
   })
@@ -38,7 +38,7 @@ describe('AuthUsuario', () => {
       password: '123456'
     })
 
-    await expect(authUsuarioService.execute({
+    await expect(createSessionService.execute({
       email: 'johndoe@mail.com', password: '112233'
     })).rejects.toBeInstanceOf(AppError)
   })

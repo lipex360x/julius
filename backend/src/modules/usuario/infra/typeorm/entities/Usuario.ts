@@ -45,7 +45,7 @@ export default class Usuario {
 
   @BeforeInsert()
   @BeforeUpdate()
-  hashPassword (): void {
-    this.password = bcrypt.hashSync(this.password, 8)
+  async hashPassword (): Promise<void> {
+    this.password = await bcrypt.hash(this.password, 8)
   }
 }

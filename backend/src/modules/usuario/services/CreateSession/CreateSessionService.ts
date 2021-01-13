@@ -18,7 +18,7 @@ interface Response {
 }
 
 @injectable()
-export default class AuthUsuarioService {
+export default class CreateSessionService {
   constructor (
     @inject('UsuarioRepository')
     private repository: IUsuarioRepository
@@ -33,11 +33,7 @@ export default class AuthUsuarioService {
 
     if (!isValidPassword) throw new AppError('Combination user/password is wrong', 401)
 
-    const token = sign(
-      { id: getUser.usuario_id },
-      process.env.JWT_SECRET,
-      { expiresIn: process.env.JWT_EXPIRES }
-    )
+    const token = sign({ user_id: getUser.usuario_id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES })
 
     return { user: getUser, token }
   }
