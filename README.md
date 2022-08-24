@@ -21,7 +21,7 @@
 #### :zap: Backend
 
 * Packages and Tecnologies
-```json
+```js
   Express
   Typescript
   TypeORM
@@ -36,7 +36,7 @@
 #### :zap: Frontend
 
 * Packages and Tecnologies
-```json
+```js
  HTML5
  CSS3
  Javascript
