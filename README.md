@@ -50,7 +50,7 @@
 #### :zap: VueJS
 
 * Packages and Tecnologies
-```json
+```js
  Vue3
  Vuex4
  ChartJS
